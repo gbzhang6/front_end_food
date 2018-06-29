@@ -1,37 +1,18 @@
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
+import React from 'react'
+import { Button, Form } from 'semantic-ui-react'
 
-const Login = props => {
-
-}
-    return (
-      <div>
-        <MuiThemeProvider>
-          <div>
-          <AppBar
-             title="Login"
-           />
-           <TextField
-             hintText="Enter your Username"
-             floatingLabelText="Username"
-             onChange = {(event,newValue) => this.setState({username:newValue})}
-             />
-           <br/>
-             <TextField
-               type="password"
-               hintText="Enter your Password"
-               floatingLabelText="Password"
-               onChange = {(event,newValue) => this.setState({password:newValue})}
-               />
-             <br/>
-             <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
-         </div>
-         </MuiThemeProvider>
-      </div>
-    );
-  }
-}
+const Login = () => (
+  <Form>
+    <Form.Field>
+      <label>Username</label>
+      <input placeholder='Username' />
+    </Form.Field>
+    <Form.Field>
+      <label>Password</label>
+      <input type='password' placeholder='Password' />
+    </Form.Field>
+    <Button type='submit'>Submit</Button>
+  </Form>
+)
 
 export default Login;

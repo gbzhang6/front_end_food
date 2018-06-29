@@ -3,8 +3,9 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo infinite 20s linear;
   height: 80px;
+  float: left
 }
 
 .App-header {
@@ -20,6 +21,12 @@
 
 .App-intro {
   font-size: large;
+}
+
+.wine {
+  animation: App-logo infinite 20s linear;
+  align-content: inline;
+  height: 200px;
 }
 
 @keyframes App-logo-spin {
