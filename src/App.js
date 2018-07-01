@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
-import {connect} from 'react-redux'
 import NavBar from './Containers/NavBar'
-import Mainpage from './Containers/Mainpage';
 import Register from './Components/Register';
-import {BrowserRouter as Router, Route, Switch, withRouter} from 'react-router-dom';
-import { routeActions } from 'react-router-redux';
 
 class App extends Component {
 
+  handleSubmit = (data) => {
+    console.log("why", data)
+    fetch("http://localhost:3000/api/v1/users/", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify({ username: data.username, password: data.password})
+    }).then(res => res.json())
+    .then(console.log)
+  }
 
   render() {
     return (
       <div className="App">
         <NavBar />
-        <Register />
-        <Mainpage />
+        <Register handleSubmit={this.handleSubmit}/>
       </div>
     );
   }

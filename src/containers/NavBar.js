@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
 import Register from '../Components/Register';
 import Login from '../Components/Login';
-import { Input, Menu, Segment } from 'semantic-ui-react'
+import { Input, Menu } from 'semantic-ui-react'
 import logo from '../images/logo.svg';
 
 class NavBar extends Component {
@@ -38,7 +37,7 @@ class NavBar extends Component {
     return (
       <Menu secondary>
         <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>
-        <img src={logo}/>
+        <img src={logo} alt="home button"/>
         </Menu.Item>
         <Menu.Item
           name='matches'
