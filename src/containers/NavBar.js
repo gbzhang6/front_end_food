@@ -10,8 +10,6 @@ class NavBar extends Component {
   }
 
   switchRenderFunction = () => {
-    console.log("yoooo maama")
-    console.log(this.state.activeItem)
     switch(this.state.activeItem) {
       case 'signup':
       return (
@@ -46,11 +44,6 @@ class NavBar extends Component {
         <Menu.Item
           name='matches'
           active={activeItem === 'matches'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name='friends'
-          active={activeItem === 'friends'}
           onClick={this.handleItemClick}
         />
         <Menu.Menu position='right'>

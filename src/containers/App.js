@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import '../App.css';
 import NavBar from './NavBar';
+import { connect } from 'react-redux'; //needed to set up connection between store and this file
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Login from '../Components/Login';
 import Register from '../Components/Register';
-import Mainpage from './Mainpage'
+import Mainpage from './Mainpage';
 class App extends Component {
 
   handleSubmit = (data) => {
@@ -24,10 +26,17 @@ class App extends Component {
   }
 
   render() {
+    const routes = [
+    <Route key={"home"} exact path="/home" render={ () => <Mainpage />}/>
+    ]
+    const login = [<Route key={"login"} exact path="/login"  render={ () => <Login />}/>,<Route key={"signup"} path="/signup" exact render={ () => <Register/>}/>]
+
     return (
       <div className="App">
         <NavBar />
-        <Login />
+        { localStorage.getItem("token") ? routes : login }
+        <Route key={"main"} exact path="/" render={ () => 
+        <Mainpage />}/>
       </div>
     );
   }
