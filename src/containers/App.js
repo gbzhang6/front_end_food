@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
-import NavBar from './Containers/NavBar'
-import Register from './Components/Register';
-
+import '../App.css';
+import NavBar from './NavBar';
+import Login from '../Components/Login';
+import Register from '../Components/Register';
+import Mainpage from './Mainpage'
 class App extends Component {
 
   handleSubmit = (data) => {
@@ -14,14 +15,19 @@ class App extends Component {
       },
       body: JSON.stringify({ username: data.username, password: data.password})
     }).then(res => res.json())
-    .then(console.log)
+    .then(json => {
+      console.log("What is this", json)
+      debugger
+      localStorage.setItem('token', json.token);
+      localStorage.setItem('id', json.id)
+    })
   }
 
   render() {
     return (
       <div className="App">
         <NavBar />
-        <Register handleSubmit={this.handleSubmit}/>
+        <Login />
       </div>
     );
   }

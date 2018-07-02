@@ -30,6 +30,10 @@ class NavBar extends Component {
     },()=>{this.switchRenderFunction()})
   }
 
+  redirectToSignup = () => {
+    this.props.history.push('/register')
+    console.log("signup is clicked")
+  }
 
   render() {
     const { activeItem } = this.state
@@ -56,7 +60,7 @@ class NavBar extends Component {
           <Menu.Item
             name='signup'
             active={activeItem === 'signup'}
-            onClick={this.handleItemClick}
+            onClick={this.redirectToSignup}
           />
           <Menu.Item
             name='login'
