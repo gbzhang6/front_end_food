@@ -14,7 +14,6 @@ class Register extends Component {
   }
 
   render (){
-    console.log("insider Register:", this.state)
     return (
       <Form onSubmit={()=>this.props.handleSubmit(this.state)}>
         <Form.Field>
