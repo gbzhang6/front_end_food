@@ -1,28 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button, Form, Segment, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import findRestaurant from '../actions/findRestaurant-action';
+import { updateSearchTerm } from '../actions/match-actions';
 
-const FindNewPlaces = (props) => (
-  <Card centered >
-  <Segment inverted>
-    <Form inverted onSubmit={props.searchTerm(["gui"])}>
-      <Form.Input fluid label='Please input a search catergory' placeholder='i.e. Restaurant, Coffee, Bar, etc.' />
-      <Button type='submit'>Submit</Button>
-    </Form>
-  </Segment>
-  </Card>
-)
+class FindNewPlaces extends Component{
 
-const mapStateToProps = (state) => {
-  return state
+  render (){
+    return(
+      <Card centered >
+        <Segment inverted>
+        <Form inverted onChange={(e)=>this.props.updateSearchTerm(e.target.value)}>
+        <Form.Input fluid label='Please input a search catergory' placeholder='i.e. Restaurant, Coffee, Bar, etc.' />
+        <Button type='submit'>Submit</Button>
+        </Form>
+        </Segment>
+      </Card>
+
+    )
+  }
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    updateSearchTerm: (value) => {
+      dispatch(updateSearchTerm(value))
+    }
+  }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    searchTerm: (searchTerm) => { dispatch(findRestaurant(searchTerm))}
-  };
-};
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(FindNewPlaces);
+export default connect(null, mapDispatchToProps)(FindNewPlaces);

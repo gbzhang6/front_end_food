@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
 import wine from '../images/wine.svg';
+import FindNewPlaces from '../Components/FindNewPlaces'
 
 class Mainpage extends Component {
 
@@ -9,6 +9,7 @@ class Mainpage extends Component {
       <div>
         <h2>Welcome to Dine Out</h2>
         <img src={wine} className="wine" alt="wine-glass"/>
+        <FindNewPlaces searchTerm={this.props.searchTerm} />
       </div>
     );
   }
