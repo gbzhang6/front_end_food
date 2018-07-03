@@ -18,6 +18,7 @@ export const defaultState = {
       comments:[],
     },
     restaurants: [],
+    searchTerm: [],
 }
 
 const store = createStore(

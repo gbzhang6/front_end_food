@@ -12,8 +12,6 @@ class Login extends Component {
   }
 
   onSubmit = (event) => {
-    console.log("what is this", event.target.username.value)
-    console.log("what is password", event.target.password.value)
     event.preventDefault()
     event.persist()
     this.setState({...this.state, toggle: false})

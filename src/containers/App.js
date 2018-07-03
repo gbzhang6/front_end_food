@@ -5,11 +5,11 @@ import { connect } from 'react-redux'; //needed to set up connection between sto
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Login from '../Components/Login';
 import Register from '../Components/Register';
+import FindNewPlaces from '../Components/FindNewPlaces';
 import Mainpage from './Mainpage';
 class App extends Component {
 
   handleSubmit = (data) => {
-    console.log("why", data)
     fetch("http://localhost:3000/api/v1/users/", {
       method: "POST",
       headers: {
@@ -18,7 +18,6 @@ class App extends Component {
       body: JSON.stringify({ username: data.username, password: data.password})
     }).then(res => res.json())
     .then(json => {
-      console.log("What is this", json)
       debugger
       localStorage.setItem('token', json.token);
       localStorage.setItem('id', json.id)
@@ -27,7 +26,7 @@ class App extends Component {
 
   render() {
     const routes = [
-    <Route key={"home"} exact path="/home" render={ () => <Mainpage />}/>
+    <Route key={"home"} exact path="/home" render={ () => <FindNewPlaces />}/>
     ]
     const login = [<Route key={"login"} exact path="/login"  render={ () => <Login />}/>,<Route key={"signup"} path="/signup" exact render={ () => <Register/>}/>]
 
@@ -35,7 +34,7 @@ class App extends Component {
       <div className="App">
         <NavBar />
         { localStorage.getItem("token") ? routes : login }
-        <Route key={"main"} exact path="/" render={ () => 
+        <Route key={"main"} exact path="/" render={ () =>
         <Mainpage />}/>
       </div>
     );
