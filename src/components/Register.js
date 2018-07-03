@@ -1,10 +1,25 @@
-import React, { Component } from 'react'
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Button, Checkbox, Form } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 
 class Register extends Component {
   state = {
     username:'',
     password:'',
+  }
+
+  handleSubmit = () => {
+    fetch("http://localhost:3000/api/v1/users/", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify({ username: this.state.username, password: this.state.password})
+    }).then(res => res.json())
+    .then(json => {
+      localStorage.setItem('token', json.token);
+      localStorage.setItem('id', json.id)
+    })
   }
 
   handleChange = (e) => {
@@ -15,7 +30,7 @@ class Register extends Component {
 
   render (){
     return (
-      <Form onSubmit={()=>this.props.handleSubmit(this.state)}>
+      <Form onSubmit={this.handleSubmit}>
         <Form.Field>
           <label>Username</label>
           <input onChange={this.handleChange} name="username" value={this.state.username} placeholder='Username' />
@@ -37,4 +52,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default connect(null, null)(Register);

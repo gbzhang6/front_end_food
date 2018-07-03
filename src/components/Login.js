@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { routeActions } from 'react-router-redux';
 import { withRouter } from 'react-router-dom';
+import wine from '../images/wine.svg';
 
 class Login extends Component {
   state = {
@@ -32,19 +33,22 @@ class Login extends Component {
 
   render(){
     return (
-      <Card.Group centered >
-        <Form onSubmit={this.onSubmit}>
-        <Form.Field>
-          <label>Username</label>
-          <input name="username" placeholder='Username' />
-        </Form.Field>
-        <Form.Field>
-          <label>Password</label>
-          <input name="password" type='password' placeholder='Password' />
-        </Form.Field>
-        <Button type='submit'>Log In</Button>
-        </Form>
-      </Card.Group>
+      <div>
+        <img src={wine} className="wine" alt="wine-glass"/>
+        <Card.Group centered >
+          <Form onSubmit={this.onSubmit}>
+          <Form.Field>
+            <label>Username</label>
+            <input name="username" placeholder='Username' />
+          </Form.Field>
+          <Form.Field>
+            <label>Password</label>
+            <input name="password" type='password' placeholder='Password' />
+          </Form.Field>
+          <Button type='submit'>Log In</Button>
+          </Form>
+        </Card.Group>
+      </div>
     )
   }
 
