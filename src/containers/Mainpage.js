@@ -3,7 +3,8 @@ import wine from '../images/wine.svg';
 import FindNewPlaces from '../Components/FindNewPlaces'
 import Restaurants from '../Components/Restaurants'
 import { connect } from 'react-redux';
-import { findRestaurantsByQuery } from '../actions/match-actions'
+import { findRestaurantsByQuery } from '../actions/match-actions';
+import { Grid } from 'semantic-ui-react';
 
 
 class Mainpage extends Component {
@@ -19,7 +20,9 @@ class Mainpage extends Component {
         <h2>Welcome to Dine Out</h2>
         <img src={wine} className="wine" alt="wine-glass"/>
         <FindNewPlaces />
-        {restaurants}
+        <Grid centered>
+          {restaurants}
+        </Grid>
       </div>
     );
   }
