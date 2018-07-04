@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import { Button, Form, Segment, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { updateSearchTerm, findMyRestaurants } from '../actions/match-actions';
+import { updateSearchTerm, updateSearchCity, findMyRestaurants } from '../actions/match-actions';
 
 class FindNewPlaces extends Component{
 
-  handleSubmit = () => {
+  handleSubmitTerm = () => {
     this.props.findMyRestaurants(this.props.searchTerm)
   }
+
+  handleSubmitCity = () => {
+    this.props.findMyRestaurants(this.props.searchCity)
+  }
+
   render (){
     return(
       <Card centered >
         <Segment inverted>
-        <Form inverted onChange={(e)=>this.props.updateSearchTerm(e.target.value)} onSubmit={this.handleSubmit}>
-        <Form.Input fluid label='Please input a search catergory' placeholder='i.e. Restaurant, Coffee, Bar, etc.' />
+        <Form inverted onSubmit={this.handleSubmitTerm} >
+        <Form.Input fluid label='Find' placeholder='Restaurant, Cafe , Bar, etc.' onChange={(e)=>this.props.updateSearchTerm(e.target.value)}  />
+        <Form.Input fluid label='Near' placeholder='Manhattan, Hells Kitchen, etc.' onChange={(e)=>this.props.updateSearchCity(e.target.value)} />
         <Button type='submit'>Submit</Button>
         </Form>
         </Segment>
@@ -35,4 +41,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, { findMyRestaurants, updateSearchTerm })(FindNewPlaces);
+export default connect(null, { findMyRestaurants, updateSearchTerm, updateSearchCity})(FindNewPlaces);

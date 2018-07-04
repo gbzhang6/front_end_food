@@ -18,6 +18,13 @@ export function updateSearchTerm(searchTerm){
   }
 }
 
+export function updateSearchCity(searchCity){
+  return {
+    type: "UPDATE_SEARCH_CITY",
+    payload: searchCity
+  }
+}
+
 export function findRestaurantsByQuery(searchTermForRestaurants){
   return {
     type: "FIND_RESTAURANTS_BY_QUERY",
