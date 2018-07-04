@@ -1,19 +1,25 @@
-import React, { Component } from 'react';
-import { Button, Checkbox, Form } from 'semantic-ui-react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { Button, Card, Image } from 'semantic-ui-react'
 
-class Restaurant extends Component {
+const Restaurant = (props) => (
+  <Card.Group>
+    <Card>
+    <Image src={props.restaurant.image_url} />
+    <Card.Header>{props.restaurant.name}</Card.Header>
+    <Card.Meta>Avg Rating:{props.restaurant.rating}</Card.Meta>
+    <Card.Meta>Review Count:{props.restaurant.review_count}</Card.Meta>
+      <Card.Content extra>
+        <div className='ui two buttons'>
+          <Button basic color='red'>
+            Yuck
+          </Button>
+          <Button basic color='green'>
+            Yay
+          </Button>
+        </div>
+      </Card.Content>
+    </Card>
+  </Card.Group>
+)
 
-}
-
-handleFindRecipeClick = (selectedIngredients) => {
-    fetch(URL2 + this.state.selectedIngredients.join('%20'))
-    .then(response => response.json())
-    .then(recipes => this.setState(
-      {
-        recipes
-      })
-    )
-  }
-
-export default connect(mapStateToProps)(Restaurant)
+export default Restaurant;

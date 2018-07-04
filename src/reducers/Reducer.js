@@ -18,9 +18,11 @@ function homepageReducer(state=defaultState, action){
     return {...state, searchTerm: action.payload}
   case "FIND_RESTAURANTS_BY_QUERY":
     return {...state, restaurants: action.payload}
+  case "UPDATE_RESTAURANT_STATE":
+    return {...state, restaurants: action.payload}
   default:
     return state
   }
 }
 
-export default homepageReducer
+export default homepageReducer;
