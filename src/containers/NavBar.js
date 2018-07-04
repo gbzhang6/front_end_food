@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import Register from '../Components/Register';
-import Login from '../Components/Login';
 import { Input, Menu } from 'semantic-ui-react'
 import logo from '../images/logo.svg';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class NavBar extends Component {
   state = {
@@ -14,11 +12,6 @@ class NavBar extends Component {
     this.setState({
       activeItem: name
     })
-  }
-
-  redirectToSignup = () => {
-    this.props.history.push('/register')
-    console.log("signup is clicked")
   }
 
   render() {

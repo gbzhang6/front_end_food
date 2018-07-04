@@ -8,6 +8,7 @@ import { findRestaurantsByQuery } from '../actions/match-actions'
 class Mainpage extends Component {
 
   render(){
+    console.log("current Search Term", this.props.searchTerm)
     return (
       <div>
         <h2>Welcome to Dine Out</h2>
@@ -19,10 +20,11 @@ class Mainpage extends Component {
 }
 
 function mapStateToProps(state){
-  return state.searchTerm
+  return {searchTerm: state.searchTerm}
+
 }
 
-function mapDispatchToProps(){
+function mapDispatchToProps(dispatch){
 
 }
 

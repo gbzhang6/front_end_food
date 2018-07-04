@@ -19,6 +19,7 @@ class FindNewPlaces extends Component{
     )
   }
 }
+
 function mapDispatchToProps(dispatch) {
   return {
     updateSearchTerm: (value) => {

@@ -21,7 +21,6 @@ class App extends Component {
         { localStorage.getItem("token") ? routes : login }
         <Route key={"main"} exact path="/" render={ () =>
         <Login />}/>
-        <Register />
       </div>
     );
   }

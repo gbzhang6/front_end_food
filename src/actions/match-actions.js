@@ -14,9 +14,9 @@ export function updateSearchTerm(searchTerm){
   }
 }
 
-export function findRestaurantsByQuery(restaurants){
+export function findRestaurantsByQuery(searchTermForRestaurants){
   return {
     type: "FIND_RESTAURANTS_BY_QUERY",
-    payload: restaurants
+    payload: searchTermForRestaurants
   }
 }
