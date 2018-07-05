@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Input, Menu } from 'semantic-ui-react'
 import logo from '../images/logo.svg';
-import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
   state = {
@@ -19,7 +18,7 @@ class NavBar extends Component {
 
     return (
       <Menu secondary>
-        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>
+        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} href="/home">
         <img src={logo} alt="home button"/>
         </Menu.Item>
         { localStorage.getItem('token') ?

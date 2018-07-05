@@ -3,9 +3,7 @@ import wine from '../images/wine.svg';
 import FindNewPlaces from '../Components/FindNewPlaces'
 import Restaurants from '../Components/Restaurants'
 import { connect } from 'react-redux';
-import { findRestaurantsByQuery } from '../actions/match-actions';
 import { Grid } from 'semantic-ui-react';
-
 
 class Mainpage extends Component {
 
@@ -13,8 +11,6 @@ class Mainpage extends Component {
 
     const restaurants = this.props.restaurants.map(restaurant=><Restaurants key={restaurant.id} restaurant={restaurant} />)
 
-
-    console.log("current Search Term", this.props.searchTerm)
     return (
       <div>
         <h2>Welcome to Dine Out</h2>
@@ -31,10 +27,6 @@ class Mainpage extends Component {
 function mapStateToProps(state){
   return {searchTerm: state.searchTerm,
   restaurants: state.restaurants}
-
-}
-
-function mapDispatchToProps(dispatch){
 
 }
 

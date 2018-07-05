@@ -40,4 +40,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, { findMyRestaurants, updateSearchTerm, updateSearchCity})(FindNewPlaces);
+export default connect(mapStateToProps, { findMyRestaurants, updateSearchTerm, updateSearchCity} )(FindNewPlaces);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import NavBar from './NavBar';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Login from '../Components/Login';
 import Register from '../Components/Register';
 import Mainpage from './Mainpage';

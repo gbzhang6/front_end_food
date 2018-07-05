@@ -39,7 +39,7 @@
   to { transform: rotate(360deg); }
 }
 
-.crop {
+/* .crop {
  height: 300px;
  width: 400px;
  overflow: hidden;
@@ -47,4 +47,9 @@
 .crop img {
  height: auto;
  width: 400px;
+} */
+
+.image {
+  width: 300px;
+  height: 400px;
 }
