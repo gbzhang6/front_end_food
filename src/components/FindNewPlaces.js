@@ -14,7 +14,7 @@ class FindNewPlaces extends Component{
       <Card centered >
         <Segment inverted>
         <Form inverted onSubmit={this.handleSubmitTerm} >
-        <Form.Input fluid label='Find' placeholder='Restaurant, Cafe , Bar, etc.' onChange={(e)=>this.props.updateSearchTerm(e.target.value)}  />
+        <Form.Input fluid label='Find' placeholder='Restaurant, Cafe , Bar, etc.' onChange={(e)=>this.props.updateSearchTerm(e.target.value)} />
         <Form.Input fluid label='Near' placeholder='Manhattan, Hells Kitchen, etc.' onChange={(e)=>this.props.updateSearchCity(e.target.value)} />
         <Button type='submit'>Submit</Button>
         </Form>
