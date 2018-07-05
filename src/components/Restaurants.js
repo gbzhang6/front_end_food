@@ -1,7 +1,10 @@
 import React from 'react';
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Image } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { matchRestaurant, rejectRestaurant } from '../actions/match-actions';
 
 const Restaurant = (props) => (
+
   <Card.Group>
     <Card>
     <Image size="medium" src={props.restaurant.image_url}/>
@@ -22,4 +25,14 @@ const Restaurant = (props) => (
   </Card.Group>
 )
 
-export default Restaurant;
+console.log("store", this.props)
+
+
+function mapStateToProps(state) {
+  return {
+    matches: state.user['matches'],
+    rejects: state.user['rejects'],
+  }
+}
+
+export default connect(mapStateToProps, { matchRestaurant, rejectRestaurant} )(Restaurant);

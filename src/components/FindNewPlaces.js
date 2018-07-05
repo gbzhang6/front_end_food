@@ -32,12 +32,4 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    updateSearchTerm: (value) => {
-      dispatch(updateSearchTerm(value))
-    }
-  }
-}
-
 export default connect(mapStateToProps, { findMyRestaurants, updateSearchTerm, updateSearchCity} )(FindNewPlaces);
