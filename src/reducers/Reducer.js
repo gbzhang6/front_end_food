@@ -20,9 +20,17 @@ function homepageReducer(state=defaultState, action){
   case "UPDATE_RESTAURANT_STATE":
     return {...state, restaurants: action.payload}
   case "ADD_TO_MATCHES":
-    return {...state, user: {...state.user, matches: action.payload}}
+    return {...state,
+      user: {...state.user,
+        matches: [...state.user.matches, action.payload]
+      }
+    }
   case "ADD_TO_REJECTS":
-    return {...state, user: {...state.user, rejects: action.payload}}
+    return {...state,
+      user: {...state.user,
+        rejects: [...state.user.rejects, action.payload]
+      }
+    }
   default:
     return state
   }
