@@ -39,15 +39,15 @@
   to { transform: rotate(360deg); }
 }
 
-/* .crop {
+.crop {
  height: 300px;
- width: 400px;
  overflow: hidden;
+ text-align: center;
 }
-.crop img {
- height: auto;
- width: 400px;
-} */
+
+.imgCrop {
+ height: 100%;
+}
 
 .image {
   width: 300px;

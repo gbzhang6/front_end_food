@@ -35,7 +35,7 @@ export function matchRestaurant(matchRestaurant){
   }
 }
 
-export function rejectRestaurant(rejectedRestaurant){
+export function rejectRestaurant(rejectRestaurant){
   return {
     type: "ADD_TO_REJECTS",
     payload: rejectRestaurant
