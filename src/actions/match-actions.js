@@ -1,6 +1,8 @@
-export function findMyRestaurants(searchTermForRestaurants){
+const URL = 'http://localhost:3000/api/v1/restaurants/yelpSearch'
+
+export function findMyRestaurants(searchTerm, searchCity){
   return (dispatch) => {
-    return fetch('http://localhost:3000/api/v1/restaurants/yelpSearch')
+    return fetch(`${URL}?term=${searchTerm}&location=${searchCity}`)
       .then(res => res.json())
       .then(json => json.results.businesses)
       .then(businesses => dispatch(
@@ -22,12 +24,5 @@ export function updateSearchCity(searchCity){
   return {
     type: "UPDATE_SEARCH_CITY",
     payload: searchCity
-  }
-}
-
-export function findRestaurantsByQuery(searchTermForRestaurants){
-  return {
-    type: "FIND_RESTAURANTS_BY_QUERY",
-    payload: searchTermForRestaurants
   }
 }

@@ -1,5 +1,3 @@
-import { FIND_ALL_MY_MATCHES } from '../actions/match-actions'
-
 export const defaultState = {
   user: {
       matches:[],

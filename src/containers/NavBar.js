@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Menu } from 'semantic-ui-react'
 import logo from '../images/logo.svg';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
   state = {
@@ -38,13 +38,14 @@ class NavBar extends Component {
            <Menu.Item
             name='logout'
             active={activeItem === 'logout'}
-            onClick={this.handleItemClick}
+            onClick={()=>localStorage.clear()}
+            href="/"
             />
           :
           <Menu.Item
             name='signup'
             active={activeItem === 'signup'}
-            onClick={this.redirectToSignup}
+            href="/signup"
           />}
         </Menu.Menu>
       </Menu>

@@ -6,11 +6,7 @@ import { updateSearchTerm, updateSearchCity, findMyRestaurants } from '../action
 class FindNewPlaces extends Component{
 
   handleSubmitTerm = () => {
-    this.props.findMyRestaurants(this.props.searchTerm)
-  }
-
-  handleSubmitCity = () => {
-    this.props.findMyRestaurants(this.props.searchCity)
+    this.props.findMyRestaurants(this.props.searchTerm, this.props.searchCity)
   }
 
   render (){
@@ -29,8 +25,11 @@ class FindNewPlaces extends Component{
   }
 }
 
-function mapDispatchToProps(dispatch) {
-
+function mapStateToProps(state) {
+  return {
+    searchTerm: state.searchTerm,
+    searchCity: state.searchCity,
+  }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -41,4 +40,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, { findMyRestaurants, updateSearchTerm, updateSearchCity})(FindNewPlaces);
+export default connect(mapStateToProps, { findMyRestaurants, updateSearchTerm, updateSearchCity})(FindNewPlaces);

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import '../App.css';
 import NavBar from './NavBar';
-import { connect } from 'react-redux'; //needed to set up connection between store and this file
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Login from '../Components/Login';
 import Register from '../Components/Register';
-import FindNewPlaces from '../Components/FindNewPlaces';
 import Mainpage from './Mainpage';
 class App extends Component {
 
