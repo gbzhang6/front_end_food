@@ -25,7 +25,7 @@ class NavBar extends Component {
           <Menu.Item
             name='matches'
             active={activeItem === 'matches'}
-            onClick={this.handleItemClick}
+            onClick={this.handleItemClick} href="/matches"
           />
         :
         null }

@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
 import { Button, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { matchRestaurant, rejectRestaurant } from '../actions/match-actions';
+import { matchRestaurant, rejectRestaurant, updateRestaurantArray } from '../actions/match-actions';
 
 class Restaurant extends Component {
+  state = {
+    clicked: false,
+  }
+
+  handleRestaurantClick = (restaurantID) => {
+    this.props.updateRestaurantArray(restaurantID)
+  }
 
   triggerMatchRestaurant = (props) => {
-    this.props.matchRestaurant(this.props.restaurant)
+    console.log("Gui", this.props)
+    console.log("what shun is in store", this.props.userID)
+
+    this.props.matchRestaurant(this.props.restaurant.id, this.props.userID)
+    this.handleRestaurantClick(this.props.restaurant.id)
   }
   triggerRejectRestaurant = (props) => {
+    console.log("what is not in store", this.props)
     this.props.rejectRestaurant(this.props.restaurant)
+    this.handleRestaurantClick(this.props.restaurant.id)
   }
   render(){
     return (
@@ -39,9 +52,11 @@ class Restaurant extends Component {
 
 function mapStateToProps(state) {
   return {
+    userID: state.userID,
+    restaurants: state.restaurants,
     matches: state.user['matches'],
     rejects: state.user['rejects'],
   }
 }
 
-export default connect(mapStateToProps, { matchRestaurant, rejectRestaurant} )(Restaurant);
+export default connect(mapStateToProps, { matchRestaurant, rejectRestaurant, updateRestaurantArray} )(Restaurant);

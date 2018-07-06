@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { routeActions } from 'react-router-redux';
 import { withRouter } from 'react-router-dom';
 import wine from '../images/wine.svg';
+import { updateUser } from '../actions/match-actions';
 
 class Login extends Component {
   state = {
@@ -29,6 +30,7 @@ class Login extends Component {
       localStorage.setItem('id', json.id);
       setTimeout(()=> this.props.history.push('/home'), 1000)
     })
+    .then(()=>this.props.updateUser(localStorage.getItem('id')))
   }
 
   render(){
@@ -63,4 +65,4 @@ const mapActionsToProps = (dispatch) => {
     }, dispatch)
 }
 
-export default withRouter(connect(mapStateToProps, mapActionsToProps)(Login));
+export default withRouter(connect(mapStateToProps, {mapActionsToProps, updateUser} )(Login));
