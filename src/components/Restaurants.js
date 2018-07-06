@@ -14,7 +14,6 @@ class Restaurant extends Component {
 
   triggerMatchRestaurant = (props) => {
     console.log("Gui", this.props)
-    console.log("what shun is in store", this.props.userID)
 
     this.props.matchRestaurant(this.props.restaurant.id, this.props.userID)
     this.handleRestaurantClick(this.props.restaurant.id)
