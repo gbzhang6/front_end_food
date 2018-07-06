@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import wine from '../images/wine.svg';
+import wineMain from '../images/wine-main.svg';
+import NavBar from './NavBar';
 import FindNewPlaces from '../Components/FindNewPlaces'
 import Restaurants from '../Components/Restaurants'
 import { connect } from 'react-redux';
 import { Grid } from 'semantic-ui-react';
+import Matched from '../Components/Matched';
 
 class Mainpage extends Component {
 
@@ -13,8 +15,10 @@ class Mainpage extends Component {
 
     return (
       <div>
+        <NavBar />
+        {this.props.userID.length > 0 ? <Matched /> : <h1>ERRORS</h1>}
         <h2>Welcome to Dine Out</h2>
-        <img src={wine} className="wine" alt="wine-glass"/>
+        <img src={wineMain} className="wine" alt="wine-glass"/>
         <FindNewPlaces />
         <Grid centered>
           {restaurants}
@@ -25,9 +29,11 @@ class Mainpage extends Component {
 }
 
 function mapStateToProps(state){
-  return {searchTerm: state.searchTerm,
-  restaurants: state.restaurants}
-
+  return {
+    userID: state.userID,
+    searchTerm: state.searchTerm,
+    restaurants: state.restaurants
+  }
 }
 
 export default connect(mapStateToProps)(Mainpage);

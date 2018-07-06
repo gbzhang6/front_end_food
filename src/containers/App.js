@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../App.css';
-import NavBar from './NavBar';
 import { Route } from 'react-router-dom';
 import Login from '../Components/Login';
 import Register from '../Components/Register';
@@ -19,7 +18,6 @@ class App extends Component {
 
     return (
       <div className="App">
-        <NavBar />
         { localStorage.getItem("token") ? routes : login }
         <Route key={"main"} exact path="/" render={ () =>
         <Login />}/>

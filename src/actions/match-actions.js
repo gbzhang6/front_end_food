@@ -35,7 +35,7 @@ export function updateSearchCity(searchCity){
   }
 }
 
-export function matchRestaurant(matchRestaurantID, userID){
+export function matchRestaurant(matchRestaurant, userID){
   return (dispatch) => {
     return fetch(URL2, {
       method: 'POST',
@@ -43,13 +43,27 @@ export function matchRestaurant(matchRestaurantID, userID){
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({'restaurant_id': matchRestaurantID, 'user_id': userID})
+      body: JSON.stringify({'restaurant': matchRestaurant, 'restaurant_id': `${matchRestaurant.id}`, 'user_id': userID})
     })
     .then(businesses => dispatch(
       {type: "ADD_TO_MATCHES",
       payload: matchRestaurant}
       )
     )
+  }
+}
+
+export function findMyMatches(userID){
+  return (dispatch) => {
+    return fetch(URL2)
+      .then(res => res.json())
+      .then(json => {
+        console.log("inside", json)
+        return dispatch({
+          type: "FIND_ALL_MY_MATCHES",
+          payload: json
+        })
+      })
   }
 }
 

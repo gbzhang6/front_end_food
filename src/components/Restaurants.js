@@ -4,26 +4,23 @@ import { connect } from 'react-redux';
 import { matchRestaurant, rejectRestaurant, updateRestaurantArray } from '../actions/match-actions';
 
 class Restaurant extends Component {
-  state = {
-    clicked: false,
-  }
 
   handleRestaurantClick = (restaurantID) => {
     this.props.updateRestaurantArray(restaurantID)
   }
 
   triggerMatchRestaurant = (props) => {
-    console.log("Gui", this.props)
-
-    this.props.matchRestaurant(this.props.restaurant.id, this.props.userID)
+    this.props.matchRestaurant(this.props.restaurant, this.props.userID)
     this.handleRestaurantClick(this.props.restaurant.id)
   }
+
   triggerRejectRestaurant = (props) => {
-    console.log("what is not in store", this.props)
     this.props.rejectRestaurant(this.props.restaurant)
     this.handleRestaurantClick(this.props.restaurant.id)
   }
+
   render(){
+    console.log("props are", this.props);
     return (
       <Card.Group>
         <Card>

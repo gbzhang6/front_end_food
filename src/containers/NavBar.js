@@ -25,7 +25,7 @@ class NavBar extends Component {
           <Menu.Item
             name='matches'
             active={activeItem === 'matches'}
-            onClick={this.handleItemClick} href="/matches"
+            onClick={this.handleItemClick} href="/match"
           >
             <Icon name='like' />
             Matched
@@ -51,11 +51,7 @@ class NavBar extends Component {
             href="/"
             />
           :
-          <Menu.Item
-            name='signup'
-            active={activeItem === 'signup'}
-            href="/signup"
-          />}
+          null}
         </Menu.Menu>
       </Menu>
     )

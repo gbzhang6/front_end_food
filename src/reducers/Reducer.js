@@ -15,7 +15,12 @@ function homepageReducer(state=defaultState, action){
     case "UPDATE_USER_ID":
       return {...state, userID: action.payload}
     case "FIND_ALL_MY_MATCHES":
-      return {...state, ...state.homepage}
+      let matches = action.payload.filter(match => match.user_id === parseInt(state.userID))
+      return {...state,
+        user: {...state.user,
+          matches: [...state.user.matches, matches],
+        }
+      }
     case "UPDATE_SEARCH_TERM":
       return {...state, searchTerm: action.payload}
     case "UPDATE_SEARCH_CITY":
