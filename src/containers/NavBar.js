@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Menu } from 'semantic-ui-react'
+import { Input, Menu, Icon } from 'semantic-ui-react'
 import logo from '../images/logo.svg';
 
 class NavBar extends Component {
@@ -26,9 +26,19 @@ class NavBar extends Component {
             name='matches'
             active={activeItem === 'matches'}
             onClick={this.handleItemClick} href="/matches"
-          />
+          >
+            <Icon name='like' />
+            Matched
+          </Menu.Item>
         :
         null }
+        { localStorage.getItem('token') ?
+          <Menu.Item name='map' active={activeItem === 'map'} onClick={this.handleItemClick} href="/map">
+            <Icon name='map outline' />
+            Map
+          </Menu.Item>
+          :
+          null }
         <Menu.Menu position='right'>
           <Menu.Item>
             <Input icon='search' placeholder='Search...' />
