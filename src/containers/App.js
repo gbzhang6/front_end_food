@@ -14,11 +14,11 @@ import OurMap from '../Components/Map';
 class App extends Component {
 
   render() {
-    const routes = [
-    <Route key={"home"} exact path="/home" render={ () => <Mainpage />}/>,
-    <Route key={"match"} exact path="/match" render={ () => <Matched />}/>,
-    <Route key={"map"} exact path="/map" render={ () => <OurMap />}/>,
-    ]
+    // const routes = [
+    // <Route key={"home"} exact path="/home" render={ () => <Mainpage />}/>,
+    // <Route key={"match"} exact path="/match" render={ () => <Matched />}/>,
+    // <Route key={"map"} exact path="/map" render={ () => <OurMap />}/>,
+    // ]
     const login = [
     <Route key={"login"} exact path="/login"  render={ () => <Login />}/>,
     <Route key={"signup"} path="/signup" exact render={ () => <Register/>}/>
@@ -27,10 +27,11 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          { localStorage.getItem("token") ? routes : login }
-          <Route key={"main"} exact path="/" render={ () =>
-            <Login />
-          }/>
+          { localStorage.getItem("token") ? null : login }
+          <Route exact path="/home" component={Mainpage} />
+          <Route exact path="/match" component={Matched} />
+          <Route exact path="/map" component={OurMap} />
+          <Route exact path="/" component={Login} />
         </div>
       </BrowserRouter>
     );

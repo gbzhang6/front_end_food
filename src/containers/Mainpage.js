@@ -16,7 +16,6 @@ class Mainpage extends Component {
     return (
       <div>
         <NavBar />
-        {this.props.userID.length > 0 ? <Matched /> : <h1>ERRORS</h1>}
         <h2>Welcome to Dine Out</h2>
         <img src={wineMain} className="wine" alt="wine-glass"/>
         <FindNewPlaces />

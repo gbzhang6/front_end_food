@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Input, Menu, Icon } from 'semantic-ui-react'
+import { Input, Menu, Icon } from 'semantic-ui-react';
 import logo from '../images/logo.svg';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
   state = {
@@ -18,27 +21,23 @@ class NavBar extends Component {
 
     return (
       <Menu secondary>
-        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} href="/home">
-        <img src={logo} alt="home button"/>
+        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>
+          <img src={logo} alt="home button"/>
+          <Link to='/home'>
+          </Link>
         </Menu.Item>
-        { localStorage.getItem('token') ?
-          <Menu.Item
-            name='matches'
-            active={activeItem === 'matches'}
-            onClick={this.handleItemClick} href="/match"
-          >
+        <Menu.Item name='matches' active={activeItem === 'matches'} onClick={this.handleItemClick}>
+          <Link to='/matches'>
             <Icon name='like' />
             Matched
-          </Menu.Item>
-        :
-        null }
-        { localStorage.getItem('token') ?
-          <Menu.Item name='map' active={activeItem === 'map'} onClick={this.handleItemClick} href="/map">
+          </Link>
+        </Menu.Item>
+        <Menu.Item name='map' active={activeItem === 'map'} onClick={this.handleItemClick}>
+          <Link to='/map'>
             <Icon name='map outline' />
             Map
-          </Menu.Item>
-          :
-          null }
+          </Link>
+        </Menu.Item>
         <Menu.Menu position='right'>
           <Menu.Item>
             <Input icon='search' placeholder='Search...' />
@@ -58,4 +57,8 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+function mapStateToProps(state) {
+  return state
+}
+
+export default withRouter(connect(mapStateToProps)(NavBar));

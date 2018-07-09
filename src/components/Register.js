@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Checkbox, Form } from 'semantic-ui-react';
+import { Button, Checkbox, Form, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import { updateUser } from '../actions/match-actions';
+import { withRouter } from 'react-router-dom';
 
 class Register extends Component {
   state = {
@@ -18,8 +20,10 @@ class Register extends Component {
     }).then(res => res.json())
     .then(json => {
       localStorage.setItem('token', json.token);
-      localStorage.setItem('id', json.id)
+      localStorage.setItem('id', json.id);
+      setTimeout(()=> this.props.history.push('/home'), 1000)
     })
+    .then(()=>this.props.updateUser(localStorage.getItem('id')))
   }
 
   handleChange = (e) => {
@@ -30,8 +34,9 @@ class Register extends Component {
 
   render (){
     return (
+      <div className="register-form">
+      <Card.Group centered >
       <Form onSubmit={this.handleSubmit}>
-
         <Form.Field>
           <h3>Sign Up Now</h3>
           <h4 className="form-h4">You must fill out all fields</h4>
@@ -51,8 +56,10 @@ class Register extends Component {
         </Form.Field>
         <Button type='submit'>Submit</Button>
       </Form>
+      </Card.Group>
+      </div>
     )
   }
 }
 
-export default connect(null, null)(Register);
+export default withRouter(connect(null, { updateUser })(Register));

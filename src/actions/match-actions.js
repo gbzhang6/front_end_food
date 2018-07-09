@@ -55,6 +55,7 @@ export function matchRestaurant(matchRestaurant, userID){
 
 export function findMyMatches(userID){
   return (dispatch) => {
+    console.log("shawn", userID)
     return fetch(URL2)
       .then(res => res.json())
       .then(json => {

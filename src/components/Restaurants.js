@@ -23,9 +23,6 @@ class Restaurant extends Component {
     console.log("props are", this.props);
     return (
       <Card.Group>
-        <Dimmer active>
-          <Loader />
-        </Dimmer>
         <Card>
           <div className="crop">
             <img className='imgCrop' src={this.props.restaurant.image_url} alt=''/>
@@ -39,7 +36,7 @@ class Restaurant extends Component {
                 Yuck
               </Button>
               <Button basic color='green' onClick={this.triggerMatchRestaurant}>
-                Yay
+                Yumm
               </Button>
             </div>
           </Card.Content>
