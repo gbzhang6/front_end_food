@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { routeActions } from 'react-router-redux';
 import { withRouter } from 'react-router-dom';
-import wine from '../images/wine.svg';
 import { updateUser } from '../actions/match-actions';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
   state = {
@@ -33,12 +33,17 @@ class Login extends Component {
     .then(()=>this.props.updateUser(localStorage.getItem('id')))
   }
 
+  redirectToSignup = () => {
+    this.props.history.push('/signup')
+  }
+
   render(){
     return (
       <div>
-        <img src={wine} className="wine" alt="wine-glass"/>
+
         <Card.Group centered >
           <Form onSubmit={this.onSubmit}>
+          <h3>Log In</h3>
           <Form.Field>
             <label>Username</label>
             <input name="username" placeholder='Username' />
@@ -48,6 +53,7 @@ class Login extends Component {
             <input name="password" type='password' placeholder='Password' />
           </Form.Field>
           <Button type='submit'>Log In</Button>
+          <div onClick={this.redirectToSignup}>Don't Have an Account? <p className="signup">Create one here</p></div>
           </Form>
         </Card.Group>
       </div>

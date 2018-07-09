@@ -31,7 +31,10 @@ class Register extends Component {
   render (){
     return (
       <Form onSubmit={this.handleSubmit}>
+
         <Form.Field>
+          <h3>Sign Up Now</h3>
+          <h4 className="form-h4">You must fill out all fields</h4>
           <label>Username</label>
           <input onChange={this.handleChange} name="username" value={this.state.username} placeholder='Username' />
         </Form.Field>

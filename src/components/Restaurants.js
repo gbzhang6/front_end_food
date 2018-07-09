@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card } from 'semantic-ui-react';
+import { Dimmer, Loader, Button, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { matchRestaurant, rejectRestaurant, updateRestaurantArray } from '../actions/match-actions';
 
@@ -23,6 +23,9 @@ class Restaurant extends Component {
     console.log("props are", this.props);
     return (
       <Card.Group>
+        <Dimmer active>
+          <Loader />
+        </Dimmer>
         <Card>
           <div className="crop">
             <img className='imgCrop' src={this.props.restaurant.image_url} alt=''/>

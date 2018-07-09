@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Route } from 'react-router-dom';
+import { render } from "react-dom";
+import {
+    BrowserRouter,
+    Route,
+    Link
+} from "react-browser-router";
 import Login from '../Components/Login';
 import Register from '../Components/Register';
 import Mainpage from './Mainpage';
@@ -14,14 +19,20 @@ class App extends Component {
     <Route key={"match"} exact path="/match" render={ () => <Matched />}/>,
     <Route key={"map"} exact path="/map" render={ () => <OurMap />}/>,
     ]
-    const login = [<Route key={"login"} exact path="/login"  render={ () => <Login />}/>,<Route key={"signup"} path="/signup" exact render={ () => <Register/>}/>]
+    const login = [
+    <Route key={"login"} exact path="/login"  render={ () => <Login />}/>,
+    <Route key={"signup"} path="/signup" exact render={ () => <Register/>}/>
+    ]
 
     return (
-      <div className="App">
-        { localStorage.getItem("token") ? routes : login }
-        <Route key={"main"} exact path="/" render={ () =>
-        <Login />}/>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          { localStorage.getItem("token") ? routes : login }
+          <Route key={"main"} exact path="/" render={ () =>
+            <Login />
+          }/>
+        </div>
+      </BrowserRouter>
     );
   }
 }
