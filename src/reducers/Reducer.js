@@ -1,9 +1,8 @@
 export const defaultState = {
-  user: {
-    matches:[],
-    rejects:[],
-    comments:[],
-  },
+  user: [],
+  matches:[],
+  rejects:[],
+  comments:[],
   userID: '',
   restaurants: [],
   searchTerm: '',
@@ -15,11 +14,8 @@ function homepageReducer(state=defaultState, action){
     case "UPDATE_USER_ID":
       return {...state, userID: action.payload}
     case "FIND_ALL_MY_MATCHES":
-      let matches = action.payload.filter(match => match.user_id === parseInt(state.userID))
       return {...state,
-        user: {...state.user,
-          matches: [...state.user.matches, matches],
-        }
+        matches: [...state.matches, action.payload.filter(match => match.user_id === parseInt(state.userID, 10))]
       }
     case "UPDATE_SEARCH_TERM":
       return {...state, searchTerm: action.payload}
@@ -29,15 +25,11 @@ function homepageReducer(state=defaultState, action){
       return {...state, restaurants: action.payload}
     case "ADD_TO_MATCHES":
       return {...state,
-        user: {...state.user,
-          matches: [...state.user.matches, action.payload]
-        }
+        matches: [...state.matches, action.payload]
       }
     case "ADD_TO_REJECTS":
       return {...state,
-        user: {...state.user,
-          rejects: [...state.user.rejects, action.payload]
-        }
+        rejects: [...state.rejects, action.payload]
       }
     case "UPDATE_RESTAURANT_ARRAY":
       return {...state,
