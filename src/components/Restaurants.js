@@ -50,8 +50,8 @@ function mapStateToProps(state) {
   return {
     userID: state.userID,
     restaurants: state.restaurants,
-    matches: state.user['matches'],
-    rejects: state.user['rejects'],
+    matches: state.matches,
+    rejects: state.matches,
   }
 }
 
