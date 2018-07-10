@@ -8,8 +8,9 @@ export const defaultState = {
   comments:[],
   userID: '',
   restaurants: [],
-  searchTerm: '',
-  searchCity: '',
+  searchTerm: 'Restaurant',
+  searchCity: 'New York, NY',
+  pricePoint: '',
   }
 
 function homepageReducer(state=defaultState, action){
@@ -28,10 +29,15 @@ function homepageReducer(state=defaultState, action){
       return {...state,
         matches: [...state.matches, action.payload.filter(match => match.user_id === parseInt(state.userID, 10))]
       }
+    case "REMOVE_FROM_MATCHES_ARRAY":
+      return {...state,
+      matches: [...state.matches.filter(restaurant => restaurant.id !== action.payload)]}
     case "UPDATE_SEARCH_TERM":
       return {...state, searchTerm: action.payload}
     case "UPDATE_SEARCH_CITY":
       return {...state, searchCity: action.payload}
+    case "UPDATE_PRICE_POINT":
+      return {...state, pricePoint: action.payload}
     case "UPDATE_RESTAURANT_STATE":
       return {...state, restaurants: action.payload}
     case "ADD_TO_MATCHES":

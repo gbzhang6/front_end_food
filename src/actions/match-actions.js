@@ -15,9 +15,9 @@ export function userLocation(longitude, latitude) {
   }
 }
 
-export function findMyRestaurants(searchTerm, searchCity){
+export function findMyRestaurants(searchTerm, searchCity, price){
   return (dispatch) => {
-    return fetch(`${URL}?term=${searchTerm}&location=${searchCity}`)
+    return fetch(`${URL}?term=${searchTerm}&location=${searchCity}&price=${price}`)
       .then(res => res.json())
       .then(json => json.results.businesses)
       .then(businesses => dispatch(
@@ -40,6 +40,13 @@ export function updateSearchCity(searchCity){
   return {
     type: "UPDATE_SEARCH_CITY",
     payload: searchCity
+  }
+}
+
+export function updatePricePoint(price){
+  return {
+    type: "UPDATE_PRICE_POINT",
+    payload: price
   }
 }
 
@@ -80,6 +87,13 @@ export function rejectRestaurant(rejectRestaurant){
   return {
     type: "ADD_TO_REJECTS",
     payload: rejectRestaurant
+  }
+}
+
+export function removeRestFromMatchArray(restaurantID) {
+  return {
+    type: "REMOVE_FROM_MATCHES_ARRAY",
+    payload: restaurantID
   }
 }
 

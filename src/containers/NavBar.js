@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Input, Menu, Icon } from 'semantic-ui-react';
+import { Input, Menu, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 
 class NavBar extends Component {
   state = {
@@ -18,25 +17,18 @@ class NavBar extends Component {
   render() {
     const { activeItem } = this.state
     return (
-      <Menu position='top' inverted>
-        <Container>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>
-            <Link to='/home'>
-              <Icon name='home' />
-              Dine Out
-            </Link>
+      <Menu inverted>
+          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} as={NavLink} to='/home'>
+            <Icon name='home' />
+            Dine Out
           </Menu.Item>
-          <Menu.Item name='match' active={activeItem === 'matches'} onClick={this.handleItemClick}>
-            <Link to='/match'>
-              <Icon name='like' />
-              Matched
-            </Link>
+          <Menu.Item name='match' active={activeItem === 'matches'} onClick={this.handleItemClick} as={NavLink} to='/match'>
+            <Icon name='like' />
+            Matched
           </Menu.Item>
-          <Menu.Item name='map' active={activeItem === 'map'} onClick={this.handleItemClick}>
-            <Link to='/map'>
-              <Icon name='map outline' />
-              Map
-            </Link>
+          <Menu.Item name='map' active={activeItem === 'map'} onClick={this.handleItemClick} as={NavLink} to='/map'>
+            <Icon name='map outline' />
+            Map
           </Menu.Item>
           <Menu.Menu position='right'>
             <Menu.Item>
@@ -52,7 +44,6 @@ class NavBar extends Component {
             :
             null}
           </Menu.Menu>
-        </Container>
       </Menu>
     )
   }
