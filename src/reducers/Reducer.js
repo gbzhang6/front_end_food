@@ -18,7 +18,6 @@ function homepageReducer(state=defaultState, action){
     case "UPDATE_USER_ID":
       return {...state, userID: action.payload}
     case "FIND_USER_LOCATION":
-      console.log()
       return {...state,
         user: {...state.user,
           longitude: action.payload[0],
