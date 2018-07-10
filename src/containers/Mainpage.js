@@ -5,7 +5,6 @@ import FindNewPlaces from '../Components/FindNewPlaces'
 import Restaurants from '../Components/Restaurants'
 import { connect } from 'react-redux';
 import { Grid } from 'semantic-ui-react';
-import Matched from '../Components/Matched';
 
 class Mainpage extends Component {
 

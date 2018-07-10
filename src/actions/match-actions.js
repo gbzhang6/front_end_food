@@ -8,16 +8,24 @@ export function updateUser(userID){
   }
 }
 
+export function userLocation(longitude, latitude) {
+  return {
+    type: "FIND_USER_LOCATION",
+    payload: [longitude, latitude]
+  }
+}
+
 export function findMyRestaurants(searchTerm, searchCity){
   return (dispatch) => {
     return fetch(`${URL}?term=${searchTerm}&location=${searchCity}`)
       .then(res => res.json())
       .then(json => json.results.businesses)
       .then(businesses => dispatch(
-        {type: "UPDATE_RESTAURANT_STATE",
-        payload: businesses}
+        {
+          type: "UPDATE_RESTAURANT_STATE",
+          payload: businesses
+        })
       )
-    )
   }
 }
 
@@ -46,20 +54,20 @@ export function matchRestaurant(matchRestaurant, userID){
       body: JSON.stringify({'restaurant': matchRestaurant, 'restaurant_id': `${matchRestaurant.id}`, 'user_id': userID})
     })
     .then(businesses => dispatch(
-      {type: "ADD_TO_MATCHES",
-      payload: matchRestaurant}
-      )
-    )
+      {
+        type: "ADD_TO_MATCHES",
+        payload: matchRestaurant
+      }
+    ))
   }
 }
 
 export function findMyMatches(userID){
   return (dispatch) => {
-    console.log("shawn", userID)
     return fetch(URL2)
       .then(res => res.json())
       .then(json => {
-        console.log("inside", json)
+        console.log("inside match", json)
         return dispatch({
           type: "FIND_ALL_MY_MATCHES",
           payload: json

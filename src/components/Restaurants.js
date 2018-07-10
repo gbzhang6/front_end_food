@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dimmer, Loader, Button, Card } from 'semantic-ui-react';
+import { Button, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { matchRestaurant, rejectRestaurant, updateRestaurantArray } from '../actions/match-actions';
 
@@ -20,7 +20,6 @@ class Restaurant extends Component {
   }
 
   render(){
-    console.log("props are", this.props);
     return (
       <Card.Group>
         <Card>

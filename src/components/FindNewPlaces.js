@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Button, Form, Segment, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { updateSearchTerm, updateSearchCity, findMyRestaurants } from '../actions/match-actions';
 
-class FindNewPlaces extends Component{
+class FindNewPlaces extends PureComponent{
 
   handleSubmitTerm = () => {
     this.props.findMyRestaurants(this.props.searchTerm, this.props.searchCity)

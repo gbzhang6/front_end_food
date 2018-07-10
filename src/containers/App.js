@@ -4,7 +4,6 @@ import { render } from "react-dom";
 import {
     BrowserRouter,
     Route,
-    Link
 } from "react-browser-router";
 import Login from '../Components/Login';
 import Register from '../Components/Register';

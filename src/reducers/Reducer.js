@@ -1,5 +1,8 @@
 export const defaultState = {
-  user: [],
+  user: {
+    longitude:'',
+    latitude:'',
+  },
   matches:[],
   rejects:[],
   comments:[],
@@ -10,9 +13,18 @@ export const defaultState = {
   }
 
 function homepageReducer(state=defaultState, action){
+  console.log("jesse", action.type)
   switch(action.type){
     case "UPDATE_USER_ID":
       return {...state, userID: action.payload}
+    case "FIND_USER_LOCATION":
+      console.log()
+      return {...state,
+        user: {...state.user,
+          longitude: action.payload[0],
+          latitude: action.payload[1],
+        }
+      }
     case "FIND_ALL_MY_MATCHES":
       return {...state,
         matches: [...state.matches, action.payload.filter(match => match.user_id === parseInt(state.userID, 10))]

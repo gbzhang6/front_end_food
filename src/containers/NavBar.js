@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Input, Menu, Icon } from 'semantic-ui-react';
-import wineMain from '../images/wine-main.svg';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -22,8 +21,9 @@ class NavBar extends Component {
       <Menu position='top' inverted>
         <Container>
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>
-            <img src={wineMain} alt="home button"/>
             <Link to='/home'>
+              <Icon name='home' />
+              Dine Out
             </Link>
           </Menu.Item>
           <Menu.Item name='match' active={activeItem === 'matches'} onClick={this.handleItemClick}>
