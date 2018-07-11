@@ -29,6 +29,10 @@ function homepageReducer(state=defaultState, action){
       return {...state,
         matches: [...state.matches, action.payload.filter(match => match.user_id === parseInt(state.userID, 10))]
       }
+    case "UPDATE_ALL_MY_MATCHES":
+      return {...state,
+        matches: [...state.matches, action.payload.filter(match => match.user_id === parseInt(state.userID, 10))]
+      }
     case "REMOVE_FROM_MATCHES_ARRAY":
       return {...state,
       matches: [...state.matches.filter(restaurant => restaurant.id !== action.payload)]}

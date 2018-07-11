@@ -74,9 +74,22 @@ export function findMyMatches(userID){
     return fetch(URL2)
       .then(res => res.json())
       .then(json => {
-        console.log("inside match", json)
         return dispatch({
           type: "FIND_ALL_MY_MATCHES",
+          payload: json
+        })
+      })
+  }
+}
+
+export function findUpdateMatches(userID){
+  return (dispatch) => {
+    return fetch(URL2)
+      .then(res => res.json())
+      .then(json => {
+        console.log("inside match", json)
+        return dispatch({
+          type: "UPDATE_ALL_MY_MATCHES",
           payload: json
         })
       })
@@ -90,10 +103,23 @@ export function rejectRestaurant(rejectRestaurant){
   }
 }
 
-export function removeRestFromMatchArray(restaurantID) {
-  return {
-    type: "REMOVE_FROM_MATCHES_ARRAY",
-    payload: restaurantID
+export function removeRest(rejectRestaurant, userID) {
+  return (dispatch) => {
+    return fetch(URL2 + `/${rejectRestaurant.id}`, {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({'restaurant': rejectRestaurant, 'restaurant_id': `${rejectRestaurant.id}`, 'user_id': userID})
+    })
+    .then(res => res.json())
+    .then(businesses => dispatch(
+      {
+        type: "UPDATE_ALL_MY_MATCHES",
+        payload: businesses
+      }
+    ))
   }
 }
 

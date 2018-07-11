@@ -18,7 +18,7 @@ class FindNewPlaces extends PureComponent{
         <Form.Input fluid label='Near' placeholder='Manhattan, Hells Kitchen, etc.' onChange={(e)=>this.props.updateSearchCity(e.target.value)} />
         <Form.Group widths='equal'>
           <Form.Field label='Price' control='select' onChange={(e)=>this.props.updatePricePoint(e.target.value)}>
-            <option value='0'></option>
+            <option value='0'>''</option>
             <option value='1'>$</option>
             <option value='2'>$$</option>
             <option value='3'>$$$</option>

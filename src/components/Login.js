@@ -31,7 +31,7 @@ class Login extends Component {
       setTimeout(()=> this.props.history.push('/home'), 1000)
     })
     .then(()=>this.props.updateUser(localStorage.getItem('id')))
-    .then(()=>this.props.findMyMatches(this.props.userID))
+    .then(()=>this.props.findMyMatches(`${localStorage.id}`))
   }
 
   redirectToSignup = () => {
@@ -41,6 +41,7 @@ class Login extends Component {
   render(){
     return (
       <div>
+        <h2>Dine Out</h2>
         <img src={wine} className="wine" alt="wine-glass"/>
         <Card.Group centered >
           <Form onSubmit={this.onSubmit}>

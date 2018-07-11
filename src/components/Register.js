@@ -3,11 +3,13 @@ import { Button, Checkbox, Form, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { updateUser } from '../actions/match-actions';
 import { withRouter } from 'react-router-dom';
+import wine from '../images/wine.svg';
 
 class Register extends Component {
   state = {
     username:'',
     password:'',
+    reType: ''
   }
 
   handleSubmit = () => {
@@ -42,7 +44,8 @@ class Register extends Component {
       <Card.Group centered >
       <Form onSubmit={this.handleSubmit}>
         <Form.Field>
-          <h3>Sign Up Now</h3>
+          <h3>Sign Up For Dine Out</h3>
+          <img src={wine} className="wine" alt="wine-glass"/>
           <h4 className="form-h4">You must fill out all fields</h4>
           <label>Username</label>
           <input onChange={this.handleChange} name="username" value={this.state.username} placeholder='Username' />
@@ -53,7 +56,7 @@ class Register extends Component {
         </Form.Field>
         <Form.Field>
           <label>Retype Password</label>
-          <input type='password' placeholder='Retype Password' />
+          <input onChange={this.handleChange} name="reType" type='password' placeholder='Retype Password' value={this.state.reType} />
         </Form.Field>
         <Form.Field>
           <Checkbox label='Do you promise to be AWESOME?' />
