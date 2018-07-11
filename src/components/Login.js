@@ -11,6 +11,7 @@ class Login extends Component {
   state = {
     username:'',
     password:'',
+    errors: false,
   }
 
   onSubmit = (event) => {
@@ -28,8 +29,16 @@ class Login extends Component {
     .then(json => {
       localStorage.setItem('token', json.token);
       localStorage.setItem('id', json.id);
-      setTimeout(()=> this.props.history.push('/home'), 1000)
+
     })
+    .then(() =>
+    {if (localStorage.getItem("id") !== "undefined") {
+    setTimeout(()=> this.props.history.push('/home'), 1000)}
+  else {
+    this.setState({
+      errors: true
+    })
+  }})
     .then(()=>this.props.updateUser(localStorage.getItem('id')))
     .then(()=>this.props.findMyMatches(`${localStorage.id}`))
   }
@@ -46,11 +55,11 @@ class Login extends Component {
         <Card.Group centered >
           <Form onSubmit={this.onSubmit}>
           <h3>Login</h3>
-          <Form.Field>
+          <Form.Field error={this.state.errors}>
             <label>Username</label>
             <input name="username" placeholder='Username' />
           </Form.Field>
-          <Form.Field>
+          <Form.Field error={this.state.errors}>
             <label>Password</label>
             <input name="password" type='password' placeholder='Password' />
           </Form.Field>

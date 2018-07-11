@@ -27,7 +27,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
 
-          { localStorage.id && localStorage.id !== "undefined" ? login : null }
+          { localStorage.getItem("id") && localStorage.getItem("id") !== "undefined" ? login : null }
           <Route exact path="/home" component={Mainpage} />
           <Route exact path="/match" component={Matched} />
           <Route exact path="/map" component={OurMap} />
