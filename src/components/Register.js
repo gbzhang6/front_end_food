@@ -32,6 +32,10 @@ class Register extends Component {
     });
   }
 
+  redirectToMain = () => {
+    this.props.history.push('/')
+  }
+
   render (){
     return (
       <div className="register-form">
@@ -55,6 +59,7 @@ class Register extends Component {
           <Checkbox label='Do you promise to be AWESOME?' />
         </Form.Field>
         <Button type='submit'>Submit</Button>
+        <div>You already have an account? <p className="signup" onClick={this.redirectToMain}>Let's signin. </p> </div>
       </Form>
       </Card.Group>
       </div>
