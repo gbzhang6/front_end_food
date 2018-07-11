@@ -32,6 +32,7 @@ class App extends Component {
           <Route exact path="/match" component={Matched} />
           <Route exact path="/map" component={OurMap} />
           <Route exact path="/" component={Login} />
+          <Route exact path="/signup" component={Register} />
         </div>
       </BrowserRouter>
     );

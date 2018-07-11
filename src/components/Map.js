@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import NavBar from '../Containers/NavBar';
 import GoogleMapReact from 'google-map-react';
 import MyLocation from "./MyLocation";
 import RestaurantLocation from "./RestaurantLocation";
+import LocationDisplay from "./LocationDisplay";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import NavBar from '../Containers/NavBar';
-import { Popup } from 'semantic-ui-react';
 
 class OurMap extends Component {
   state = {
@@ -36,7 +36,7 @@ class OurMap extends Component {
           >
            <MyLocation
              lat={this.props.user.latitude}
-             lng={this.props.user.longitude} onMouseEnter={<Popup content='You'/>}
+             lng={this.props.user.longitude} text={'You'}
              />
            {restaurantLocations}
           </GoogleMapReact>

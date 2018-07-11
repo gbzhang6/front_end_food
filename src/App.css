@@ -9,6 +9,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: 1;
 }
 
 .matched {
@@ -87,5 +88,6 @@
 }
 
 .register-form{
-    padding-top: 25px;
+  padding-top: 25px;
+  z-index: 4;
 }
