@@ -13,7 +13,7 @@ class Mainpage extends Component {
     const restaurants = this.props.restaurants.map(restaurant=><Restaurants key={restaurant.id} restaurant={restaurant} />)
 
     return (
-      <div>
+      <div className='mainPage'>
         <NavBar />
         <h2>Welcome to Dine Out</h2>
         <img src={wineMain} className="wine" alt="wine-glass"/>

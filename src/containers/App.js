@@ -26,7 +26,8 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          { localStorage.getItem("token") ? null : login }
+
+          { localStorage.id && localStorage.id !== "undefined" ? login : null }
           <Route exact path="/home" component={Mainpage} />
           <Route exact path="/match" component={Matched} />
           <Route exact path="/map" component={OurMap} />

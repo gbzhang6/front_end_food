@@ -17,7 +17,6 @@ class Matched extends Component {
   render(){
     let matches;
     if (this.props.matches !== undefined) {
-      debugger
       matches = this.props.matches.map(match => <Card>
         <div className="crop">
           <img className='imgCrop' src={match.restaurant.image_url} alt=''/>
@@ -37,7 +36,7 @@ class Matched extends Component {
       matches = []
     }
     return (
-      <div>
+      <div className='matched'>
       <NavBar />
       <h1>Your Matches</h1>
       <Card.Group centered >

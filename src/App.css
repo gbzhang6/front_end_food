@@ -1,5 +1,29 @@
 .App {
   text-align: center;
+
+}
+
+#root {
+  background-image: url('./images/background.jpg');
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.matched {
+  background-image: url('./images/background.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mainPage {
+  background-image: url('./images/background.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: repeat-y;
 }
 
 .App-logo {
