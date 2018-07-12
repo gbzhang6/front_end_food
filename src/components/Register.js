@@ -9,23 +9,31 @@ class Register extends Component {
   state = {
     username:'',
     password:'',
-    reType: ''
+    reType: '',
+    errors: false,
   }
 
   handleSubmit = () => {
-    fetch("http://localhost:3000/api/v1/users/", {
-      method: "POST",
-      headers: {
-        "Content-Type" : "application/json"
-      },
-      body: JSON.stringify({ username: this.state.username, password: this.state.password})
-    }).then(res => res.json())
-    .then(json => {
-      localStorage.setItem('token', json.token);
-      localStorage.setItem('id', json.id);
-      setTimeout(()=> this.props.history.push('/home'), 1000)
-    })
-    .then(()=>this.props.updateUser(localStorage.getItem('id')))
+    if (this.state.password !== this.state.reType){
+      alert("Your passwords do not match!")
+      this.setState({
+        errors: true
+      })
+    } else {
+      fetch("http://localhost:3000/api/v1/users/", {
+        method: "POST",
+        headers: {
+          "Content-Type" : "application/json"
+        },
+        body: JSON.stringify({ username: this.state.username, password: this.state.password})
+      }).then(res => res.json())
+      .then(json => {
+        localStorage.setItem('token', json.token);
+        localStorage.setItem('id', json.id);
+        setTimeout(()=> this.props.history.push('/home'), 1000)
+      })
+      .then(()=>this.props.updateUser(localStorage.getItem('id')))
+    }
   }
 
   handleChange = (e) => {
