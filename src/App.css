@@ -33,6 +33,14 @@
   float: left
 }
 
+.yelp {
+  text-align: right;
+}
+
+.yelp-logo{
+height: 40px;
+}
+
 .App-header {
   background-color: #222;
   height: 150px;

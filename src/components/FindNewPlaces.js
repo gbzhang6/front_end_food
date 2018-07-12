@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Button, Form, Segment, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { updateSearchTerm, updateSearchCity, updatePricePoint, findMyRestaurants } from '../actions/match-actions';
+import yelpLogo from '../images/yelp.png';
 
 class FindNewPlaces extends PureComponent{
 
@@ -26,6 +27,9 @@ class FindNewPlaces extends PureComponent{
           </Form.Field>
         </Form.Group>
         <Button type='submit'>Submit</Button>
+        <div className='yelp'>
+          Powered by: <img className='yelp-logo' src={yelpLogo} alt='Yelp logo'/>
+        </div>
         </Form>
         </Segment>
       </Card>

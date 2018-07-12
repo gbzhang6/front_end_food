@@ -18,9 +18,9 @@ class Mainpage extends Component {
         <h2>Welcome to Dine Out</h2>
         <img src={wineMain} className="wine" alt="wine-glass"/>
         <FindNewPlaces />
-        <Grid centered>
-          {restaurants}
-        </Grid>
+          <Grid centered>
+            {restaurants}
+          </Grid>
       </div>
     );
   }
