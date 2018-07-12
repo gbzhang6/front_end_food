@@ -6,6 +6,9 @@ import { withRouter } from 'react-router-dom';
 import NavBar from '../Containers/NavBar';
 
 class Matched extends Component {
+  state = {
+    clicked: false,
+  }
   componentDidMount() {
     this.props.findMyMatches(`${localStorage.id}`)
   }
@@ -14,9 +17,15 @@ class Matched extends Component {
     this.props.removeRest(rejectedRestObj, this.props.userID )
   }
 
+  redirectToDetails = () => {
+    this.props.history.push('/details')
+  }
+
   moreDetails = (restObj) => {
     this.props.restDetails(restObj.restaurant.yelp_id)
     this.props.restReviews(restObj.restaurant.yelp_id)
+    setTimeout( () => {this.redirectToDetails()}, 1500);
+
   }
 
   render(){

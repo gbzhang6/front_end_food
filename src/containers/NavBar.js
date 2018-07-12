@@ -31,6 +31,9 @@ class NavBar extends Component {
             Map
           </Menu.Item>
           <Menu.Menu position='right'>
+            <Menu.Item>
+              <Input icon='search' placeholder='Search...' />
+            </Menu.Item>
            { localStorage.getItem('token') ?
              <Menu.Item
               name='logout'

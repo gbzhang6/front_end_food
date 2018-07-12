@@ -10,6 +10,7 @@ import Register from '../Components/Register';
 import Mainpage from './Mainpage';
 import Matched from '../Components/Matched';
 import OurMap from '../Components/Map';
+import RestaurantDetail from '../Components/RestaurantDetail';
 class App extends Component {
 
   render() {
@@ -33,6 +34,7 @@ class App extends Component {
           <Route exact path="/map" component={OurMap} />
           <Route exact path="/" component={Login} />
           <Route exact path="/signup" component={Register} />
+          <Route exact path="/details" component={RestaurantDetail} />
         </div>
       </BrowserRouter>
     );

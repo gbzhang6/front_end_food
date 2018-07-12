@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { userLocation } from '../actions/match-actions';
-import { Popup, Icon } from 'semantic-ui-react';
+import { Popup } from 'semantic-ui-react';
 
 class MyLocation extends Component {
 

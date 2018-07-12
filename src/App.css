@@ -91,16 +91,3 @@
   padding-top: 25px;
   z-index: 4;
 }
-
-.scrolling-wrapper {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-
-  .card {
-    display: inline-block;
-  }
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
