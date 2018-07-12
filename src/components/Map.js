@@ -6,6 +6,7 @@ import RestaurantLocation from "./RestaurantLocation";
 import LocationDisplay from "./LocationDisplay";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Popup } from 'semantic-ui-react';
 
 class OurMap extends Component {
   state = {
@@ -17,12 +18,16 @@ class OurMap extends Component {
     hover: false,
   };
 
+  handleChildClick = (matchedRestaurant) => {
+
+  }
+
 
   render() {
       // Important! Always set the container height explicitly
       let restaurantLocations;
       if (this.props.matches !== undefined) {
-        restaurantLocations = this.props.matches.map(matchedRestaurant => <RestaurantLocation lat={matchedRestaurant.restaurant.latitude} lng={matchedRestaurant.restaurant.longitude} text={'restaurant'} />)
+        restaurantLocations = this.props.matches.map(matchedRestaurant => <RestaurantLocation lat={matchedRestaurant.restaurant.latitude} lng={matchedRestaurant.restaurant.longitude} text={'restaurant'} restaurant={matchedRestaurant.restaurant}/>)
       } else {
         restaurantLocations = [];
       }
