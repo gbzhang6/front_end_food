@@ -3,10 +3,8 @@ import NavBar from '../Containers/NavBar';
 import GoogleMapReact from 'google-map-react';
 import MyLocation from "./MyLocation";
 import RestaurantLocation from "./RestaurantLocation";
-import LocationDisplay from "./LocationDisplay";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Popup } from 'semantic-ui-react';
 
 class OurMap extends Component {
   state = {
@@ -17,11 +15,6 @@ class OurMap extends Component {
     zoom: 12,
     hover: false,
   };
-
-  handleChildClick = (matchedRestaurant) => {
-
-  }
-
 
   render() {
       // Important! Always set the container height explicitly

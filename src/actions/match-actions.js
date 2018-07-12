@@ -129,3 +129,7 @@ export function updateRestaurantArray(restaurantID){
     payload: restaurantID
   }
 }
+
+export function restDetails(yelpID){
+  
+}

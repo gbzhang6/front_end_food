@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Card, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { findMyMatches, findUpdateMatches, removeRest } from '../actions/match-actions';
+import { findMyMatches, removeRest, restDetails } from '../actions/match-actions';
 import { withRouter } from 'react-router-dom';
 import NavBar from '../Containers/NavBar';
 
@@ -12,6 +12,10 @@ class Matched extends Component {
 
   rejectRestaurant = (rejectedRestObj) => {
     this.props.removeRest(rejectedRestObj, this.props.userID )
+  }
+
+  moreDetails = (restObj) => {
+    this.props.restDetails(restObj.yelp_id)
   }
 
   render(){
@@ -27,7 +31,7 @@ class Matched extends Component {
         <Card.Content extra>
           <div>
             <Button.Group size='large'>
-              <Button basic color='grey' onClick={()=>this.rejectRestaurant(match)}>
+              <Button basic color='grey' onClick={()=>this.moreDetails(match)}>
                 <Icon name='plus' /> Details
               </Button>
               <Button.Or />
@@ -60,4 +64,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { findMyMatches, removeRest } )(Matched));
+export default withRouter(connect(mapStateToProps, { findMyMatches, removeRest, restDetails } )(Matched));
