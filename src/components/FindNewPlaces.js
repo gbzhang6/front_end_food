@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { Button, Form, Segment, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { updateSearchTerm, updateSearchCity, updatePricePoint, findMyRestaurants } from '../actions/match-actions';
-import yelpLogo from '../images/yelp.png';
 
 class FindNewPlaces extends PureComponent{
 
@@ -14,9 +13,6 @@ class FindNewPlaces extends PureComponent{
     return(
       <Card centered >
         <Segment inverted>
-          <div>
-            <img className='yelp-logo' src={yelpLogo} alt='Yelp logo'/>
-          </div>
           <Form inverted onSubmit={this.handleSubmitTerm} >
           <Form.Input fluid label='Find' placeholder='Restaurant, Cafe , Bar, etc.' onChange={(e)=>this.props.updateSearchTerm(e.target.value)} />
           <Form.Input fluid label='Near' placeholder='Manhattan, Hells Kitchen, etc.' onChange={(e)=>this.props.updateSearchCity(e.target.value)} />
