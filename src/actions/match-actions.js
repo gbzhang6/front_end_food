@@ -1,6 +1,7 @@
 const URL = 'http://localhost:3000/api/v1/restaurants/yelpSearch'
 const URL2 = 'http://localhost:3000/api/v1/matches'
 const URL3 = 'http://localhost:3000/api/v1/restaurants/yelpDetails'
+const URL4 = 'http://localhost:3000/api/v1/restaurants/yelpReviews'
 
 export function updateUser(userID){
   return {
@@ -135,10 +136,24 @@ export function restDetails(yelpID){
     return fetch(`${URL3}?term=${yelpID}`)
       .then(res => res.json())
       .then(json => json.result)
-      .then(detail => dispatch(
+      .then(details => dispatch(
         {
           type: "GET_RESTAURANT_DETAIL",
-          payload: detail
+          payload: details
+        })
+      )
+  }
+}
+
+export function restReviews(yelpID){
+  return (dispatch) => {
+    return fetch(`${URL4}?term=${yelpID}`)
+      .then(res => res.json())
+      .then(json => json.reviews.reviews)
+      .then(reviews => dispatch(
+        {
+          type: "GET_RESTAURANT_REVIEW",
+          payload: reviews
         })
       )
   }

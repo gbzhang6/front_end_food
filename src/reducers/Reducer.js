@@ -9,12 +9,13 @@ export const defaultState = {
   userID: '',
   restaurants: [],
   restaurantDetail: {},
+  restaurantReview: {},
   searchTerm: 'Restaurant',
   searchCity: 'New York, NY',
   pricePoint: '',
   }
 
-function homepageReducer(state=defaultState, action){
+function masterReducer(state=defaultState, action){
   console.log("jesse", action.type)
   switch(action.type){
     case "UPDATE_USER_ID":
@@ -60,9 +61,13 @@ function homepageReducer(state=defaultState, action){
       return {...state,
         restaurantDetail: action.payload
       }
+    case "GET_RESTAURANT_REVIEW":
+      return {...state,
+        restaurantReview: action.payload
+      }
     default:
       return state
   }
 }
 
-export default homepageReducer;
+export default masterReducer;
