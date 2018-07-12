@@ -24,9 +24,9 @@ class RestaurantDetail extends PureComponent {
         <h3></h3>
         <h3>Address: {this.props.restaurant.location.address1}&nbsp;,&nbsp;{this.props.restaurant.location.city}&nbsp;,&nbsp;{this.props.restaurant.location.state}&nbsp;,&nbsp;{this.props.restaurant.location.zip_code}</h3>
         <h3>Yelp Page: <a href={this.props.restaurant.url}>Click Here</a></h3>
-        <h3>Review:{this.props.reviews[0].text}</h3>
-        <h3>Review:{this.props.reviews[1].text}</h3>
-        <h3>Review:{this.props.reviews[2].text}</h3>
+        <h3>Review:&nbsp;{this.props.reviews[0].text}</h3>
+        <h3>Review:&nbsp;{this.props.reviews[1].text}</h3>
+        <h3>Review:&nbsp;{this.props.reviews[2].text}</h3>
 
 
       </div>

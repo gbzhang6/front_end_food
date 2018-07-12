@@ -34,9 +34,8 @@ class Restaurant extends Component {
             <div>
               <Button.Group size='large'>
                 <Button basic color='green' onClick={this.triggerMatchRestaurant}>
-                  <Icon name='checkmark' />Yumm
+                  <Icon name='checkmark' />Yum
                 </Button>
-                <Button.Or />
                 <Button basic color='red' onClick={this.triggerRejectRestaurant}>
                   <Icon name='close' />Yuck
                 </Button>

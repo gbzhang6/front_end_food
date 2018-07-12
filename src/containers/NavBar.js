@@ -32,7 +32,7 @@ class NavBar extends Component {
           </Menu.Item>
           <Menu.Menu position='right'>
             <Menu.Item>
-              <Input icon='search' placeholder='Search...' />
+              <Input icon='search' placeholder='Search Your Matches...' />
             </Menu.Item>
            { localStorage.getItem('token') ?
              <Menu.Item

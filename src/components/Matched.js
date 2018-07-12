@@ -46,7 +46,6 @@ class Matched extends Component {
               <Button basic color='grey' onClick={()=>this.moreDetails(match)}>
                 <Icon name='plus' /> Details
               </Button>
-              <Button.Or />
               <Button basic color='red' onClick={()=>this.rejectRestaurant(match)}>
                 <Icon name='trash alternate' /> Delete
               </Button>
