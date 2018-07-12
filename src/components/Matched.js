@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card, Icon } from 'semantic-ui-react';
+import { Button, Card, Icon, Rating } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { findMyMatches, removeRest, restDetails, restReviews } from '../actions/match-actions';
 import { withRouter } from 'react-router-dom';
@@ -21,6 +21,8 @@ class Matched extends Component {
     this.props.history.push('/details')
   }
 
+
+
   moreDetails = (restObj) => {
     this.props.restDetails(restObj.restaurant.yelp_id)
     this.props.restReviews(restObj.restaurant.yelp_id)
@@ -36,7 +38,7 @@ class Matched extends Component {
           <img className='imgCrop' src={match.restaurant.image_url} alt=''/>
         </div>
         <Card.Header>{match.restaurant.name}</Card.Header>
-        <Card.Meta>Avg Rating:{match.restaurant.rating}</Card.Meta>
+        <Card.Meta>Avg Rating:<Rating icon='star' defaultRating={match.restaurant.rating} maxRating={5} /></Card.Meta>
         <Card.Meta>Review Count:{match.restaurant.review_count}</Card.Meta>
         <Card.Content extra>
           <div>

@@ -2,6 +2,14 @@
   text-align: center;
 
 }
+.laura{
+  padding-bottom: 10px;
+
+}
+
+.ui.centered.grid > .ui.centered.cards:first-child > .card:first-child {
+  margin-top:35px;
+}
 
 #root {
   background-image: url('./images/background.jpg');
@@ -30,15 +38,12 @@
 .App-logo {
   animation: App-logo infinite 20s linear;
   height: 80px;
-  float: left
-}
-
-.yelp {
-  text-align: right;
+  float: left;
 }
 
 .yelp-logo{
-height: 40px;
+  height: 40px;
+  float: right;
 }
 
 .App-header {

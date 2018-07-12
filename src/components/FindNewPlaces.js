@@ -14,23 +14,23 @@ class FindNewPlaces extends PureComponent{
     return(
       <Card centered >
         <Segment inverted>
-        <Form inverted onSubmit={this.handleSubmitTerm} >
-        <Form.Input fluid label='Find' placeholder='Restaurant, Cafe , Bar, etc.' onChange={(e)=>this.props.updateSearchTerm(e.target.value)} />
-        <Form.Input fluid label='Near' placeholder='Manhattan, Hells Kitchen, etc.' onChange={(e)=>this.props.updateSearchCity(e.target.value)} />
-        <Form.Group widths='equal'>
-          <Form.Field label='Price' control='select' onChange={(e)=>this.props.updatePricePoint(e.target.value)}>
-            <option value='2'></option>
-            <option value='1'>$</option>
-            <option value='2'>$$</option>
-            <option value='3'>$$$</option>
-            <option value='4'>$$$$</option>
-          </Form.Field>
-        </Form.Group>
-        <Button type='submit'>Submit</Button>
-        <div className='yelp'>
-          Powered by: <img className='yelp-logo' src={yelpLogo} alt='Yelp logo'/>
-        </div>
-        </Form>
+          <div>
+            <img className='yelp-logo' src={yelpLogo} alt='Yelp logo'/>
+          </div>
+          <Form inverted onSubmit={this.handleSubmitTerm} >
+          <Form.Input fluid label='Find' placeholder='Restaurant, Cafe , Bar, etc.' onChange={(e)=>this.props.updateSearchTerm(e.target.value)} />
+          <Form.Input fluid label='Near' placeholder='Manhattan, Hells Kitchen, etc.' onChange={(e)=>this.props.updateSearchCity(e.target.value)} />
+          <Form.Group widths='equal'>
+            <Form.Field label='Price' control='select' onChange={(e)=>this.props.updatePricePoint(e.target.value)}>
+              <option value='2'></option>
+              <option value='1'>$</option>
+              <option value='2'>$$</option>
+              <option value='3'>$$$</option>
+              <option value='4'>$$$$</option>
+            </Form.Field>
+          </Form.Group>
+          <Button type='submit'>Submit</Button>
+          </Form>
         </Segment>
       </Card>
 

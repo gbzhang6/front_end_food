@@ -145,6 +145,20 @@ export function restDetails(yelpID){
   }
 }
 
+export function detailsToggle(){
+  return {
+    type: "DETAILS_TOGGLE",
+    payload: null
+  }
+}
+
+export function reviewsToggle(){
+  return {
+    type: "REVIEWS_TOGGLE",
+    payload: null
+  }
+}
+
 export function restReviews(yelpID){
   return (dispatch) => {
     return fetch(`${URL4}?term=${yelpID}`)

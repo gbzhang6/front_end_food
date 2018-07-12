@@ -65,6 +65,14 @@ function masterReducer(state=defaultState, action){
       return {...state,
         restaurantReview: action.payload
       }
+    case "DETAILS_TOGGLE":
+      return {...state,
+        details:!state.details
+      }
+    case "REVIEWS_TOGGLE":
+      return {...state,
+        reviews:!state.reviews
+      }
     default:
       return state
   }
