@@ -25,10 +25,16 @@ class Matched extends Component {
         <Card.Meta>Avg Rating:{match.restaurant.rating}</Card.Meta>
         <Card.Meta>Review Count:{match.restaurant.review_count}</Card.Meta>
         <Card.Content extra>
-          <div className='ui two buttons'>
-            <Button basic color='red' onClick={()=>this.rejectRestaurant(match)}>
-              <Icon name='trash alternate' />
-            </Button>
+          <div>
+            <Button.Group size='large'>
+              <Button basic color='grey' onClick={()=>this.rejectRestaurant(match)}>
+                <Icon name='plus' /> Details
+              </Button>
+              <Button.Or />
+              <Button basic color='red' onClick={()=>this.rejectRestaurant(match)}>
+                <Icon name='trash alternate' /> Delete
+              </Button>
+            </Button.Group>
           </div>
         </Card.Content>
       </Card>)

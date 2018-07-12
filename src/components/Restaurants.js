@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card, Rating } from 'semantic-ui-react';
+import { Button, Card, Rating, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { matchRestaurant, rejectRestaurant, updateRestaurantArray, findUpdateMatches } from '../actions/match-actions';
 
@@ -22,7 +22,7 @@ class Restaurant extends Component {
 
   render(){
     return (
-      <Card.Group>
+      <Card.Group centered>
         <Card>
           <div className="crop">
             <img className='imgCrop' src={this.props.restaurant.image_url} alt=''/>
@@ -31,13 +31,16 @@ class Restaurant extends Component {
           <Card.Meta>Avg Rating:<Rating icon='star' defaultRating={this.props.restaurant.rating} maxRating={5} /></Card.Meta>
           <Card.Meta>Review Count:{this.props.restaurant.review_count}</Card.Meta>
           <Card.Content extra>
-            <div className='ui two buttons'>
-              <Button basic color='red' onClick={this.triggerRejectRestaurant}>
-                Yuck
-              </Button>
-              <Button basic color='green' onClick={this.triggerMatchRestaurant}>
-                Yumm
-              </Button>
+            <div>
+              <Button.Group size='large'>
+                <Button basic color='green' onClick={this.triggerMatchRestaurant}>
+                  <Icon name='checkmark' />Yumm
+                </Button>
+                <Button.Or />
+                <Button basic color='red' onClick={this.triggerRejectRestaurant}>
+                  <Icon name='close' />Yuck
+                </Button>
+            </Button.Group>
             </div>
           </Card.Content>
         </Card>
