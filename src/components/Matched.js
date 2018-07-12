@@ -15,7 +15,7 @@ class Matched extends Component {
   }
 
   moreDetails = (restObj) => {
-    this.props.restDetails(restObj.yelp_id)
+    this.props.restDetails(restObj.restaurant.yelp_id)
   }
 
   render(){

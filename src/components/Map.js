@@ -34,7 +34,7 @@ class OurMap extends Component {
           >
            <MyLocation
              lat={this.props.user.latitude}
-             lng={this.props.user.longitude} text={'You'}
+             lng={this.props.user.longitude}
              />
            {restaurantLocations}
           </GoogleMapReact>

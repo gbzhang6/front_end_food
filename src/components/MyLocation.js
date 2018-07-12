@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { userLocation } from '../actions/match-actions';
+import { Popup, Icon } from 'semantic-ui-react';
 
 class MyLocation extends Component {
 
@@ -22,12 +23,16 @@ class MyLocation extends Component {
   render() {
     return (
       <div className="me">
-        <img
+        <Popup
+        key={1}
+        trigger={<img
           src="http://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-HD.png"
           alt="You are here"
           height="20"
           width="20"
-          />
+          />}
+          header={'You are here'}
+        />
       </div>
     );
   }

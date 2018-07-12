@@ -8,6 +8,7 @@ export const defaultState = {
   comments:[],
   userID: '',
   restaurants: [],
+  restaurantDetail: {},
   searchTerm: 'Restaurant',
   searchCity: 'New York, NY',
   pricePoint: '',
@@ -55,6 +56,10 @@ function homepageReducer(state=defaultState, action){
     case "UPDATE_RESTAURANT_ARRAY":
       return {...state,
       restaurants: [...state.restaurants.filter(restaurant => restaurant.id !== action.payload)]}
+    case "GET_RESTAURANT_DETAIL":
+      return {...state,
+        restaurantDetail: action.payload
+      }
     default:
       return state
   }

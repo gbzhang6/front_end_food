@@ -1,5 +1,6 @@
 const URL = 'http://localhost:3000/api/v1/restaurants/yelpSearch'
 const URL2 = 'http://localhost:3000/api/v1/matches'
+const URL3 = 'http://localhost:3000/api/v1/restaurants/yelpDetails'
 
 export function updateUser(userID){
   return {
@@ -87,7 +88,6 @@ export function findUpdateMatches(userID){
     return fetch(URL2)
       .then(res => res.json())
       .then(json => {
-        console.log("inside match", json)
         return dispatch({
           type: "UPDATE_ALL_MY_MATCHES",
           payload: json
@@ -131,5 +131,15 @@ export function updateRestaurantArray(restaurantID){
 }
 
 export function restDetails(yelpID){
-  
+  return (dispatch) => {
+    return fetch(`${URL3}?term=${yelpID}`)
+      .then(res => res.json())
+      .then(json => json.result)
+      .then(detail => dispatch(
+        {
+          type: "GET_RESTAURANT_DETAIL",
+          payload: detail
+        })
+      )
+  }
 }
