@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Rating, Icon } from 'semantic-ui-react';
+import { Rating, Icon } from 'semantic-ui-react';
 
 class RestaurantDetail extends PureComponent {
   redirectToMatches = () => {

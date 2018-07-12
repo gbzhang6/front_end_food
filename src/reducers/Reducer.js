@@ -16,7 +16,6 @@ export const defaultState = {
   }
 
 function masterReducer(state=defaultState, action){
-  console.log("jesse", action.type)
   switch(action.type){
     case "UPDATE_USER_ID":
       return {...state, userID: action.payload}
