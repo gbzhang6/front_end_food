@@ -4,7 +4,6 @@
 }
 .laura{
   padding-bottom: 10px;
-
 }
 
 .ui.centered.grid > .ui.centered.cards:first-child > .card:first-child {
@@ -103,4 +102,15 @@
 .register-form{
   padding-top: 25px;
   z-index: 4;
+}
+
+.back-Button{
+  text-align: left;
+}
+.square{
+  width: 31.33%;
+  display: inline-block;
+  height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
