@@ -19,16 +19,16 @@ class App extends Component {
     // <Route key={"match"} exact path="/match" render={ () => <Matched />}/>,
     // <Route key={"map"} exact path="/map" render={ () => <OurMap />}/>,
     // ]
-    const login = [
-    <Route key={"login"} exact path="/login"  render={ () => <Login />}/>,
-    <Route key={"signup"} path="/signup" exact render={ () => <Register/>}/>
-    ]
+    // const login = [
+    // <Route key={"login"} exact path="/login"  render={ () => <Login />}/>,
+    // <Route key={"signup"} path="/signup" exact render={ () => <Register/>}/>
+    // ]
+    
+    // { localStorage.getItem("id") && localStorage.getItem("id") !== "undefined" ? login : null }
 
     return (
       <BrowserRouter>
         <div className="App">
-
-          { localStorage.getItem("id") && localStorage.getItem("id") !== "undefined" ? login : null }
           <Route exact path="/home" component={Mainpage} />
           <Route exact path="/match" component={Matched} />
           <Route exact path="/map" component={OurMap} />

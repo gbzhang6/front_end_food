@@ -64,7 +64,7 @@ class Login extends Component {
             <input name="password" type='password' placeholder='Password' />
           </Form.Field>
           <Button type='submit'>Log In</Button>
-          <div>Don't have an account. <p className="signup" onClick={this.redirectToSignup}>Create one here!</p> </div>
+          <div>Don't have an account? <p className="signup" onClick={this.redirectToSignup}>Create one here!</p> </div>
           </Form>
         </Card.Group>
       </div>
