@@ -28,6 +28,7 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
     "jest-enzyme": "^6.0.2",
-    "react-test-renderer": "^16.4.2"
+    "react-test-renderer": "^16.4.2",
+    "redux-mock-store": "^1.5.3"
   }
 }
